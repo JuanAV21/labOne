@@ -8,31 +8,33 @@
 #include <string.h>
 
 char* readString(char* fileName){
-    char * str;
-    FILE *fopen(const char* fileName, "r");
-    fgets(str, 100, (FILE*)fopen);
+    char * str = malloc(326 * sizeof(char));
+    FILE *fptr = fopen(fileName, "r");
+    fgets(str, 26, (FILE*)fptr);
+    fclose(fptr);
+    free(fptr);
     return str;
 }
 
 char* mysteryExplode(const char* str){
-    int * len = strlen(str);
-    int * cnt = 0;
+    int len = strlen(str);
+    int cnt = 0;
     char * cout;
 
-    for(int i =0;i =<len;++i){
+    for(int i =0;i <= len;++i){
         cnt += i;
     }
 
-    cout = malloc(cnt * sizeof(char))
+    cout = malloc(cnt * sizeof(char));
 
     for(int i=0;i<len;i++){
 
         for(int y=0;y<i;y++){
-            cout += str.charat(y);
+            //cout += str.charat(y);
+            cout += str[y];
         }
 
     }
-
     return cout;
 }
 
